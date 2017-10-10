@@ -1,1 +1,3 @@
-<button (click)="searchImages('Guatemala')">Buscar</button>
+
+<input class="search" placeholder="¿Que imagen buscas?" [(ngModel)]="searchQuery">
+<button (click)="searchImages(searchQuery)" type="button">Buscar Imagenes</button>

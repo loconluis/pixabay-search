@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ImageListComponent } from './image-list/image-list.component';
+import { ImageService } from './services/image.service';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,10 @@ import { ImageListComponent } from './image-list/image-list.component';
     ImageListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

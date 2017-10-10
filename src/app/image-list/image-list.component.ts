@@ -8,6 +8,7 @@ import { ImageService } from '../services/image.service';
 })
 export class ImageListComponent implements OnInit {
   images: any[];
+  flagToFound = false;
 
   constructor(
     private imageService: ImageService
@@ -16,11 +17,21 @@ export class ImageListComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleData(data) {
+    this.flagToFound = true;
+    this.images = data.hits;
+    console.log(data);
+  }
+
+  handleError(err) {
+    console.log(err);
+  }
+
   searchImages(query: string) {
     return this.imageService.getImages(query)
       .subscribe(
-        data => console.log(data),
-        err => console.log(err),
+        data => this.handleData(data),
+        err => this.handleError(err),
         () => console.log('Finalizo la peticion')
       );
   }

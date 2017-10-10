@@ -1,15 +1,39 @@
+<mat-card>
+  <mat-card-content>
+    <mat-form-field>
+      <input class="search" placeholder="¿Que imagen buscas?" [(ngModel)]="searchQuery" matInput>
+    </mat-form-field>
+  </mat-card-content>
+  <br>
+  <button (click)="searchImages(searchQuery)" type="button" mat-raised-button class="searchButton">Buscar Imagenes</button>
+</mat-card>
 
-<input class="search" placeholder="¿Que imagen buscas?" [(ngModel)]="searchQuery">
-<button (click)="searchImages(searchQuery)" type="button">Buscar Imagenes</button>
-
-<p *ngIf="searching">
-  Cargando imagenes...
-</p>
-
-<div *ngFor="let image of images" class="image-container">
-  <img src="{{ image.webformatURL }}" alt="{{ image.id }}">
-  <p>Tags: {{image.tags}}</p>
-  <p>Usuario: {{image.user}}</p>
-  <p>Comentarios: {{image.comments}}</p>
-  <p>Likes: {{image.likes}}</p>
+<div *ngIf="searching">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
+
+<mat-card *ngIf="flagToFound">
+  <mat-card-header>
+    <mat-card-subtitle>
+        Results
+    </mat-card-subtitle>
+  </mat-card-header>
+  <masonry [useImagesLoaded]="true">
+    <masonry-brick *ngFor="let image of images" class=image-container>
+      <mat-card>
+        <a href="{{image.pageURL}}" target="_blank">
+          <mat-card-header>
+            <div class="avatar" class="avatar" mat-card-avatar [ngStyle]="{'background-image':'url('+ image.userImageURL +')', 'background-size':'40px 40px'}"></div>
+            <mat-card-title>User: {{ image.user }}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="{{ image.webformatURL }}" alt="{{ image.id }}">
+          <mat-card-content>
+            <p>Tags: {{image.tags}}</p>
+            <p>Comentarios: {{image.comments}}</p>
+            <p>Likes: {{image.likes}}</p>
+          </mat-card-content>
+        </a>
+      </mat-card>
+    </masonry-brick>
+  </masonry>
+</mat-card>

@@ -1,11 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  
-  <app-image-list></app-image-list>
+<div class="container">
+  <div class="main-content">
+    <div class="header">
+      <span id="title"> {{ title }}</span>
+      <div class="logo">
+        <div id="attribution">Powered by</div>
+        <a href="https://pixabay.com" target="_blank">
+          <img src="../assets/img/logo.png" alt="pixabay" class="pixabayLogo">
+        </a>
+      </div>
+    </div>
+
+    <app-image-list></app-image-list>
+  </div>
 </div>
+
 
 
 

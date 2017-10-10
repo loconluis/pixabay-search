@@ -9,7 +9,7 @@ import { ImageService } from '../services/image.service';
 export class ImageListComponent implements OnInit {
   images: any[];
   flagToFound = false;
-  searching: boolean;
+  searching = false;
 
   constructor(
     private imageService: ImageService
@@ -29,11 +29,12 @@ export class ImageListComponent implements OnInit {
   }
 
   searchImages(query: string) {
+    this.searching = true;
     return this.imageService.getImages(query)
       .subscribe(
         data => this.handleData(data),
         err => this.handleError(err),
-        () => console.log('Finalizo la peticion')
+        () => this.searching = false
       );
   }
 

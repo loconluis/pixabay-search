@@ -2,6 +2,9 @@
 <input class="search" placeholder="¿Que imagen buscas?" [(ngModel)]="searchQuery">
 <button (click)="searchImages(searchQuery)" type="button">Buscar Imagenes</button>
 
+<p *ngIf="searching">
+  Cargando imagenes...
+</p>
 
 <div *ngFor="let image of images" class="image-container">
   <img src="{{ image.webformatURL }}" alt="{{ image.id }}">

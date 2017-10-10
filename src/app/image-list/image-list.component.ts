@@ -9,6 +9,7 @@ import { ImageService } from '../services/image.service';
 export class ImageListComponent implements OnInit {
   images: any[];
   flagToFound = false;
+  searching: boolean;
 
   constructor(
     private imageService: ImageService

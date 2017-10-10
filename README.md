@@ -10,7 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
  a fork of this ![video](https://www.youtube.com/watch?v=umiW-pfbB5c&t=2117s)
 
-[Preview](https://i.imgur.com/uR6Hfu7.gif)
+![Preview](https://i.imgur.com/uR6Hfu7.gif)
 
 code with ♥ by [@LoconLuis](https://twitter.com/LoconLuis) 
 

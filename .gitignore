@@ -37,6 +37,10 @@ testem.log
 /e2e/*.js
 /e2e/*.map
 
+# own ignore files
+
+/src/app/services/config.ts 
+
 # System Files
 .DS_Store
 Thumbs.db
